@@ -239,7 +239,7 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 border border-[var(--luxury-black)] bg-[var(--luxury-black)] px-6 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-transparent hover:text-[var(--luxury-black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)] disabled:cursor-not-allowed disabled:opacity-50"
+            className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 border cursor-pointer border-[var(--luxury-black)] bg-[var(--luxury-black)] px-6 text-sm font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-transparent hover:text-[var(--luxury-black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)] disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitting ? (
               <>

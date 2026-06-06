@@ -30,7 +30,7 @@ export function ContactSection() {
                   <span>{business.email}</span>
                 </a>
               ) : null}
-              <p className="flex gap-4 border border-black/10 p-5">
+              <p className="flex gap-4 border border-black/10 p-5 transition hover:border-[var(--luxury-gold)]">
                 <a href={`https://maps.app.goo.gl/6oC8b1UtsoyQK3XX7`} target="_blank" rel="noreferrer" className="flex gap-4">
                   <MapPin className="size-5 shrink-0 text-[var(--luxury-gold-deep)]" aria-hidden="true" />
                   <span>{business.fullAddress}</span>
