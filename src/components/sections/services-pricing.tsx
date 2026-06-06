@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, BadgeCheck, Crown, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, BadgeCheck, Crown, Phone, Search, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { business } from "@/data/site";
 import { pricingCategories } from "@/data/pricing";
@@ -16,8 +16,15 @@ const formatPrice = (price: number) =>
 
 export function ServicesPricing() {
   const [activeCategoryId, setActiveCategoryId] = useState(pricingCategories[1]?.id ?? "women");
+  const [searchQuery, setSearchQuery] = useState("");
   const activeCategory =
     pricingCategories.find((category) => category.id === activeCategoryId) ?? pricingCategories[0];
+
+  const filteredPackages = activeCategory.packages.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.services.some((service) => service.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
 
   return (
     <section
@@ -73,7 +80,10 @@ export function ServicesPricing() {
                       ? "border-[var(--luxury-gold)] bg-[var(--luxury-black)] text-white"
                       : "border-black/10 bg-[#fbfaf7] text-[var(--luxury-black)] hover:border-[var(--luxury-gold)]/50"
                   )}
-                  onClick={() => setActiveCategoryId(category.id)}
+                  onClick={() => {
+                    setActiveCategoryId(category.id);
+                    setSearchQuery("");
+                  }}
                 >
                   <span
                     className={cn(
@@ -119,8 +129,22 @@ export function ServicesPricing() {
                 </a>
               </div>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                {activeCategory.packages.map((item, index) => (
+              <div className="flex flex-col gap-6">
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-black/40" aria-hidden="true" />
+                  <input
+                    type="search"
+                    placeholder="Search packages or services..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="min-h-12 w-full border border-black/12 bg-white pl-11 pr-4 text-sm font-normal text-[var(--luxury-black)] outline-none transition focus:border-[var(--luxury-gold)]"
+                    aria-label="Search packages or services"
+                  />
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {filteredPackages.length > 0 ? (
+                    filteredPackages.map((item, index) => (
                   <motion.article
                     key={item.name}
                     initial={{ opacity: 0, y: 18 }}
@@ -177,7 +201,13 @@ export function ServicesPricing() {
                       <ArrowRight className="size-4" aria-hidden="true" />
                     </a>
                   </motion.article>
-                ))}
+                    ))
+                  ) : (
+                    <div className="col-span-full py-12 text-center text-sm text-black/60">
+                      No packages or services found matching "{searchQuery}".
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </motion.div>
