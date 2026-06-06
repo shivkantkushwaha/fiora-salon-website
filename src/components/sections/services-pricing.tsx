@@ -120,13 +120,13 @@ export function ServicesPricing() {
                   {activeCategory.title}
                 </h3>
                 <p className="mt-5 text-base leading-8 text-white/75">{activeCategory.description}</p>
-                <a
-                  href={`tel:${business.phone.replace(/\s/g, "")}`}
-                  className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 border border-[var(--luxury-gold)] bg-[var(--luxury-gold)] px-6 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--luxury-black)] transition hover:bg-transparent hover:text-[var(--luxury-gold)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)]"
-                >
-                  <Phone className="size-4" aria-hidden="true" />
-                  Book Now
-                </a>
+              <a
+                href={`tel:${business.phoneInternational.replace(/[^0-9+]/g, "")}`}
+                className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 border border-[var(--luxury-gold)] bg-[var(--luxury-gold)] px-6 text-sm font-semibold uppercase tracking-[0.12em] text-[var(--luxury-black)] transition hover:bg-transparent hover:text-[var(--luxury-gold)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)]"
+              >
+                <Phone className="size-4" aria-hidden="true" />
+                Book Now
+              </a>
               </div>
 
               <div className="flex flex-col gap-6">
@@ -193,13 +193,13 @@ export function ServicesPricing() {
                       ))}
                     </ul>
 
-                    <a
-                      href={`tel:${business.phone.replace(/\s/g, "")}`}
-                      className="mt-7 inline-flex w-full min-h-11 items-center justify-center gap-2 border border-[var(--luxury-black)] bg-transparent px-5 text-sm font-semibold uppercase tracking-[0.1em] text-[var(--luxury-black)] transition hover:bg-[var(--luxury-black)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)]"
-                    >
-                      Choose Package
-                      <ArrowRight className="size-4" aria-hidden="true" />
-                    </a>
+                  <a
+                    href={`tel:${business.phoneInternational.replace(/[^0-9+]/g, "")}`}
+                    className="mt-7 inline-flex w-full min-h-11 items-center justify-center gap-2 border border-[var(--luxury-black)] bg-transparent px-5 text-sm font-semibold uppercase tracking-[0.1em] text-[var(--luxury-black)] transition hover:bg-[var(--luxury-black)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)]"
+                  >
+                    Choose Package
+                    <ArrowRight className="size-4" aria-hidden="true" />
+                  </a>
                   </motion.article>
                     ))
                   ) : (
