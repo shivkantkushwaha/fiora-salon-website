@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/layout/site-header";
 import "./globals.css";
 import { business } from "@/data/site";
 import { WhatsAppWidget } from "@/components/ui/whatsapp-widget";
+import { ExitIntentPopup } from "@/components/ui/exit-intent-popup";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <WhatsAppWidget />
+        <ExitIntentPopup />
         <SiteFooter />
       </body>
     </html>
