@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+  --luxury-gold: #c8a14a;
+  --luxury-gold-deep: #9c7831;
+  --luxury-black: #050505;
+  --warm-white: #fbfaf7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(200, 161, 74, 0.28);
+  color: #050505;
+}
+
+.luxury-heading {
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+}
