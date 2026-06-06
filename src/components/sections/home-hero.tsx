@@ -13,6 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { BookingWizard } from "@/components/ui/booking-wizard";
 
 export function HomeHero() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -85,17 +86,20 @@ export function HomeHero() {
                 <DialogTitle className="luxury-heading pr-8 text-3xl font-semibold leading-tight">
                   Book your appointment
                 </DialogTitle>
-                <DialogDescription className="mt-3 text-base leading-7 text-black/70">
-                  Call {business.name} now to reserve your preferred time and speak directly
-                  with the salon team.
+                <DialogDescription className="mb-6 mt-3 text-base leading-7 text-black/70">
+                  Follow the steps below to reserve your preferred time and service directly via WhatsApp.
                 </DialogDescription>
-                <a
-                  href={`tel:${business.phone.replace(/\s/g, "")}`}
-                  className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--luxury-black)] px-6 py-4 text-sm font-semibold text-white transition hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)]"
-                >
-                  <Phone className="size-4" aria-hidden="true" />
-                  Call {business.phone}
-                </a>
+                <BookingWizard />
+                <div className="mt-6 flex flex-col items-center gap-4 border-t border-black/10 pt-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-black/50">Or</p>
+                  <a
+                    href={`tel:${business.phoneInternational.replace(/[^0-9+]/g, "")}`}
+                    className="inline-flex w-full min-h-12 items-center justify-center gap-2 rounded-full bg-[var(--luxury-black)] px-6 text-sm font-semibold text-white transition hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)]"
+                  >
+                    <Phone className="size-4" aria-hidden="true" />
+                    Call Us at {business.phoneInternational}
+                  </a>
+                </div>
               </DialogContent>
             </Dialog>
 

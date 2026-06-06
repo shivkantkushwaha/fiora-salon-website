@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import "./globals.css";
 import { business } from "@/data/site";
+import { WhatsAppWidget } from "@/components/ui/whatsapp-widget";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body className={`${serif.variable} ${sans.variable} antialiased`} suppressHydrationWarning>
         <SiteHeader />
         {children}
+        <WhatsAppWidget />
         <SiteFooter />
       </body>
     </html>

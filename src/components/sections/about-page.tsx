@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { type SVGProps } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ChevronDown, Mail, MapPin, Phone } from "lucide-react";
 import { business, socialLinks } from "@/data/site";
 import { CountUpStat } from "@/components/sections/count-up-stat";
 
@@ -96,6 +96,25 @@ const reasons = [
   },
 ];
 
+const faqs = [
+  {
+    question: "Do I need to book an appointment in advance?",
+    answer: "While we welcome walk-ins, we highly recommend booking in advance to secure your preferred time and stylist, especially on weekends and holidays."
+  },
+  {
+    question: "What brands of products do you use?",
+    answer: "We use premium, professional-grade products from leading beauty and haircare brands to ensure the best results and care for your hair and skin."
+  },
+  {
+    question: "How do I know which facial or hair treatment is right for me?",
+    answer: "Our experienced professionals offer a quick consultation before any service. They will assess your hair or skin type and recommend the most suitable treatment for your specific needs."
+  },
+  {
+    question: "What is your cancellation policy?",
+    answer: "We appreciate at least 24 hours' notice if you need to cancel or reschedule your appointment, allowing us to accommodate other clients."
+  }
+];
+
 const icons = {
   Instagram,
   Facebook,
@@ -189,6 +208,21 @@ export function AboutPage() {
                   attention to personal preference. Our goal is to make every client feel heard,
                   looked after, and ready to leave with a finish that feels naturally theirs.
                 </p>
+              </article>
+
+              <article className="border border-black/10 bg-white p-7 shadow-[0_24px_70px_rgba(0,0,0,0.06)] sm:p-10">
+                <h2 className="luxury-heading text-4xl font-semibold">Frequently Asked Questions</h2>
+                <div className="mt-8 grid gap-4">
+                  {faqs.map((faq, index) => (
+                    <details key={index} className="group border-b border-black/10 pb-5 last:border-b-0 last:pb-0">
+                      <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-[var(--luxury-black)] list-none [&::-webkit-details-marker]:hidden">
+                        <span>{faq.question}</span>
+                        <ChevronDown className="size-5 shrink-0 text-[var(--luxury-gold-deep)] transition-transform duration-300 group-open:rotate-180" aria-hidden="true" />
+                      </summary>
+                      <p className="mt-4 text-base leading-8 text-black/70">{faq.answer}</p>
+                    </details>
+                  ))}
+                </div>
               </article>
 
               <article className="border border-[var(--luxury-gold)]/35 bg-[var(--luxury-black)] p-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.12)] sm:p-10">
