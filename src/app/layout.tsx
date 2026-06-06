@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     template: `%s | ${business.name}`,
   },
   description:
-    `${business.name} in Indore offers premium beauty, hair, grooming, and salon experiences with elegant service and trusted expertise.`,
-  metadataBase: new URL(`https://fiorasalons.com`),
+    `${business.name} in ${business.city}, ${business.state} offers premium beauty, hair, grooming, and salon experiences with elegant service and trusted expertise.`,
+  metadataBase: new URL(`${business.domain.startsWith("http") ? business.domain : `https://${business.domain}`}`),
 };
 
 export default function RootLayout({

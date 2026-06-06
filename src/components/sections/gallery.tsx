@@ -9,7 +9,9 @@ export function Gallery() {
   const [activeImage, setActiveImage] = useState<(typeof galleryImages)[number] | null>(null);
 
   return (
-    <section className="bg-[var(--warm-white)] px-5 py-24 sm:px-8 lg:px-12" aria-labelledby="gallery-heading">
+    <section 
+          id="gallery"
+          className="bg-[var(--warm-white)] px-5 py-24 sm:px-8 lg:px-12" aria-labelledby="gallery-heading">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[var(--luxury-gold-deep)]">

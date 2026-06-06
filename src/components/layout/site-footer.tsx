@@ -37,6 +37,7 @@ export function SiteFooter() {
             <ul className="mt-5 grid gap-3 text-sm text-white/70">
               <li><Link className="transition hover:text-[var(--luxury-gold)]" href="/#services">Our Services</Link></li>
               <li><Link className="transition hover:text-[var(--luxury-gold)]" href="/about-us">About Us</Link></li>
+              <li><Link className="transition hover:text-[var(--luxury-gold)]" href="/#gallery">Gallery</Link></li>
               <li><Link className="transition hover:text-[var(--luxury-gold)]" href="/blog">Blog</Link></li>
               <li><Link className="transition hover:text-[var(--luxury-gold)]" href="/contact-us">Contact Us</Link></li>
               <li><Link className="transition hover:text-[var(--luxury-gold)]" href="/terms-and-conditions">Terms & Conditions</Link></li>

@@ -13,6 +13,11 @@ export const business = {
   phone: "088897 77600",
   phoneInternational: "+91 88897 77600",
   email: "info@fiorasalon.com",
+  domain: "fiorasalon.com",
+  city: "Indore",
+  state: "Madhya Pradesh",
+  country: "India",
+  zipCode: "452016",
   address: "PW67+3MX, 140, Scheme No 140, Indore, Madhya Pradesh 452016",
   fullAddress: "PW67+3MX, 140, Scheme No 140, Indore, Madhya Pradesh 452016",
 };
