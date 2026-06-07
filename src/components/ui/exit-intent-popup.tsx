@@ -47,7 +47,7 @@ export function ExitIntentPopup() {
         <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-[var(--luxury-gold)]/10 text-[var(--luxury-gold-deep)]">
           <Gift className="size-6" aria-hidden="true" />
         </div>
-        <DialogTitle className="luxury-heading text-3xl font-semibold leading-tight">
+        <DialogTitle className="luxury-heading text-2xl font-semibold leading-tight sm:text-3xl">
           Wait! Before you go...
         </DialogTitle>
         <DialogDescription className="mt-3 text-base leading-7 text-black/70">

@@ -45,12 +45,12 @@ export function BookingWizard() {
   return (
     <div className="flex flex-col">
       {/* Steps indicator */}
-      <div className="relative mb-8 flex items-center justify-between">
+      <div className="relative mb-6 flex items-center justify-between sm:mb-8">
         <div className="absolute left-0 top-1/2 -z-10 h-0.5 w-full -translate-y-1/2 bg-black/10"></div>
         <div className="absolute left-0 top-1/2 -z-10 h-0.5 -translate-y-1/2 bg-[var(--luxury-gold)] transition-all duration-300" style={{ width: `${((step - 1) / 2) * 100}%` }}></div>
         
         {[1, 2, 3].map((s) => (
-          <div key={s} className={`flex size-8 items-center justify-center rounded-full text-xs font-bold transition-colors ${step >= s ? "bg-[var(--luxury-gold)] text-[var(--luxury-black)]" : "border border-black/10 bg-white text-black/40"}`}>
+          <div key={s} className={`flex size-7 items-center justify-center rounded-full text-xs font-bold transition-colors sm:size-8 ${step >= s ? "bg-[var(--luxury-gold)] text-[var(--luxury-black)]" : "border border-black/10 bg-white text-black/40"}`}>
             {s}
           </div>
         ))}
@@ -59,10 +59,10 @@ export function BookingWizard() {
       <form onSubmit={step === 3 ? handleSubmit : (e) => { e.preventDefault(); handleNext(); }}>
         {step === 1 && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <h3 className="luxury-heading mb-4 text-2xl font-semibold text-[var(--luxury-black)]">What service are you looking for?</h3>
-            <div className="grid gap-3">
+            <h3 className="luxury-heading mb-3 text-xl font-semibold text-[var(--luxury-black)] sm:mb-4 sm:text-2xl">What service are you looking for?</h3>
+            <div className="grid gap-2 sm:gap-3">
               {pricingCategories.map((cat) => (
-                <label key={cat.id} className={`flex cursor-pointer items-center gap-3 border p-4 transition-all hover:border-[var(--luxury-gold)] ${formData.service === cat.title ? "border-[var(--luxury-gold)] bg-[var(--luxury-gold)]/5" : "border-black/10 bg-white"}`}>
+                <label key={cat.id} className={`flex cursor-pointer items-center gap-3 border p-3 transition-all hover:border-[var(--luxury-gold)] sm:p-4 ${formData.service === cat.title ? "border-[var(--luxury-gold)] bg-[var(--luxury-gold)]/5" : "border-black/10 bg-white"}`}>
                   <input
                     type="radio"
                     name="service"
@@ -71,13 +71,13 @@ export function BookingWizard() {
                     onChange={(e) => updateForm("service", e.target.value)}
                     className="sr-only"
                   />
-                  <div className={`flex size-5 items-center justify-center rounded-full border ${formData.service === cat.title ? "border-[var(--luxury-gold)]" : "border-black/20"}`}>
+                  <div className={`flex size-4 items-center justify-center rounded-full border sm:size-5 ${formData.service === cat.title ? "border-[var(--luxury-gold)]" : "border-black/20"}`}>
                     {formData.service === cat.title && <div className="size-2.5 rounded-full bg-[var(--luxury-gold)]" />}
                   </div>
-                  <span className="font-medium text-[var(--luxury-black)]">{cat.title}</span>
+                  <span className="text-sm font-medium text-[var(--luxury-black)] sm:text-base">{cat.title}</span>
                 </label>
               ))}
-              <label className={`flex cursor-pointer items-center gap-3 border p-4 transition-all hover:border-[var(--luxury-gold)] ${formData.service === "Other / Not Sure" ? "border-[var(--luxury-gold)] bg-[var(--luxury-gold)]/5" : "border-black/10 bg-white"}`}>
+              <label className={`flex cursor-pointer items-center gap-3 border p-3 transition-all hover:border-[var(--luxury-gold)] sm:p-4 ${formData.service === "Other / Not Sure" ? "border-[var(--luxury-gold)] bg-[var(--luxury-gold)]/5" : "border-black/10 bg-white"}`}>
                 <input
                   type="radio"
                   name="service"
@@ -86,10 +86,10 @@ export function BookingWizard() {
                   onChange={(e) => updateForm("service", e.target.value)}
                   className="sr-only"
                 />
-                <div className={`flex size-5 items-center justify-center rounded-full border ${formData.service === "Other / Not Sure" ? "border-[var(--luxury-gold)]" : "border-black/20"}`}>
+                <div className={`flex size-4 items-center justify-center rounded-full border sm:size-5 ${formData.service === "Other / Not Sure" ? "border-[var(--luxury-gold)]" : "border-black/20"}`}>
                   {formData.service === "Other / Not Sure" && <div className="size-2.5 rounded-full bg-[var(--luxury-gold)]" />}
                 </div>
-                <span className="font-medium text-[var(--luxury-black)]">Other / Not Sure</span>
+                <span className="text-sm font-medium text-[var(--luxury-black)] sm:text-base">Other / Not Sure</span>
               </label>
             </div>
           </div>
@@ -97,8 +97,8 @@ export function BookingWizard() {
 
         {step === 2 && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <h3 className="luxury-heading mb-4 text-2xl font-semibold text-[var(--luxury-black)]">When would you like to visit?</h3>
-            <div className="grid gap-5">
+            <h3 className="luxury-heading mb-3 text-xl font-semibold text-[var(--luxury-black)] sm:mb-4 sm:text-2xl">When would you like to visit?</h3>
+            <div className="grid gap-4 sm:gap-5">
               <label className="grid gap-2 text-sm font-semibold text-black/70">
                 <span className="flex items-center gap-2"><Calendar className="size-4" /> Date</span>
                 <input
@@ -107,7 +107,7 @@ export function BookingWizard() {
                   min={new Date().toISOString().split("T")[0]}
                   value={formData.date}
                   onChange={(e) => updateForm("date", e.target.value)}
-                  className="min-h-12 w-full border border-black/12 bg-white px-4 font-normal text-black outline-none transition focus:border-[var(--luxury-gold)]"
+                  className="min-h-11 w-full border border-black/12 bg-white px-3 font-normal text-black outline-none transition focus:border-[var(--luxury-gold)] sm:min-h-12 sm:px-4"
                 />
               </label>
               <label className="grid gap-2 text-sm font-semibold text-black/70">
@@ -117,7 +117,7 @@ export function BookingWizard() {
                   required
                   value={formData.time}
                   onChange={(e) => updateForm("time", e.target.value)}
-                  className="min-h-12 w-full border border-black/12 bg-white px-4 font-normal text-black outline-none transition focus:border-[var(--luxury-gold)]"
+                  className="min-h-11 w-full border border-black/12 bg-white px-3 font-normal text-black outline-none transition focus:border-[var(--luxury-gold)] sm:min-h-12 sm:px-4"
                 />
               </label>
             </div>
@@ -126,8 +126,8 @@ export function BookingWizard() {
 
         {step === 3 && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <h3 className="luxury-heading mb-4 text-2xl font-semibold text-[var(--luxury-black)]">Your Details</h3>
-            <div className="grid gap-5">
+            <h3 className="luxury-heading mb-3 text-xl font-semibold text-[var(--luxury-black)] sm:mb-4 sm:text-2xl">Your Details</h3>
+            <div className="grid gap-4 sm:gap-5">
               <label className="grid gap-2 text-sm font-semibold text-black/70">
                 <span className="flex items-center gap-2"><User className="size-4" /> Full Name</span>
                 <input
@@ -136,7 +136,7 @@ export function BookingWizard() {
                   placeholder="John Doe"
                   value={formData.name}
                   onChange={(e) => updateForm("name", e.target.value)}
-                  className="min-h-12 w-full border border-black/12 bg-white px-4 font-normal text-black outline-none transition focus:border-[var(--luxury-gold)]"
+                  className="min-h-11 w-full border border-black/12 bg-white px-3 font-normal text-black outline-none transition focus:border-[var(--luxury-gold)] sm:min-h-12 sm:px-4"
                 />
               </label>
               <label className="grid gap-2 text-sm font-semibold text-black/70">
@@ -147,23 +147,23 @@ export function BookingWizard() {
                   placeholder="+91 98765 43210"
                   value={formData.phone}
                   onChange={(e) => updateForm("phone", e.target.value)}
-                  className="min-h-12 w-full border border-black/12 bg-white px-4 font-normal text-black outline-none transition focus:border-[var(--luxury-gold)]"
+                  className="min-h-11 w-full border border-black/12 bg-white px-3 font-normal text-black outline-none transition focus:border-[var(--luxury-gold)] sm:min-h-12 sm:px-4"
                 />
               </label>
             </div>
-            <div className="mt-6 border border-[var(--luxury-gold)]/20 bg-[var(--luxury-gold)]/10 p-4 text-sm text-[var(--luxury-black)]">
+            <div className="mt-4 border border-[var(--luxury-gold)]/20 bg-[var(--luxury-gold)]/10 p-3 text-sm text-[var(--luxury-black)] sm:mt-6 sm:p-4">
               <p className="mb-1 flex items-center gap-2 font-semibold"><Sparkles className="size-4 text-[var(--luxury-gold-deep)]"/> Booking Summary</p>
               <p>{formData.service} on {formData.date} at {formData.time}</p>
             </div>
           </div>
         )}
 
-        <div className="mt-8 flex gap-3">
+        <div className="mt-6 flex gap-2 sm:mt-8 sm:gap-3">
           {step > 1 && (
             <button
               type="button"
               onClick={handleBack}
-              className="inline-flex min-h-12 items-center justify-center border border-black/20 bg-white px-6 text-sm font-semibold uppercase tracking-[0.1em] text-[var(--luxury-black)] transition hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)]"
+              className="inline-flex min-h-11 items-center justify-center border border-black/20 bg-white px-4 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--luxury-black)] transition hover:bg-black/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)] sm:min-h-12 sm:px-6 sm:text-sm"
             >
               Back
             </button>
@@ -171,7 +171,7 @@ export function BookingWizard() {
           <button
             type="submit"
             disabled={!isStepValid()}
-            className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 border border-[var(--luxury-black)] bg-[var(--luxury-black)] px-6 text-sm font-semibold uppercase tracking-[0.1em] text-white transition hover:bg-transparent hover:text-[var(--luxury-black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)] disabled:opacity-50 disabled:hover:bg-[var(--luxury-black)] disabled:hover:text-white"
+            className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 border border-[var(--luxury-black)] bg-[var(--luxury-black)] px-4 text-xs font-semibold uppercase tracking-[0.1em] text-white transition hover:bg-transparent hover:text-[var(--luxury-black)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--luxury-gold)] disabled:opacity-50 disabled:hover:bg-[var(--luxury-black)] disabled:hover:text-white sm:min-h-12 sm:px-6 sm:text-sm"
           >
             {step === 3 ? "Book via WhatsApp" : "Continue"}
             {step < 3 && <ArrowRight className="size-4" />}

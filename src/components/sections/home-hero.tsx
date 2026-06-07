@@ -83,14 +83,14 @@ export function HomeHero() {
                 </Button>
               </DialogTrigger>
               <DialogContent>
-                <DialogTitle className="luxury-heading pr-8 text-3xl font-semibold leading-tight">
+                <DialogTitle className="luxury-heading pr-6 text-2xl font-semibold leading-tight sm:pr-8 sm:text-3xl">
                   Book your appointment
                 </DialogTitle>
-                <DialogDescription className="mb-6 mt-3 text-base leading-7 text-black/70">
+                <DialogDescription className="mb-4 mt-2 text-sm leading-6 text-black/70 sm:mb-6 sm:mt-3 sm:text-base sm:leading-7">
                   Follow the steps below to reserve your preferred time and service directly via WhatsApp.
                 </DialogDescription>
                 <BookingWizard />
-                <div className="mt-6 flex flex-col items-center gap-4 border-t border-black/10 pt-6">
+                <div className="mt-4 flex flex-col items-center gap-3 border-t border-black/10 pt-4 sm:mt-6 sm:gap-4 sm:pt-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.1em] text-black/50">Or</p>
                   <a
                     href={`tel:${business.phoneInternational.replace(/[^0-9+]/g, "")}`}
